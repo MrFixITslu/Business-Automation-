@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Automation Suite v3.1</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Business Automation Suite <span class="badge">v3.1</span></h1>
+        <p>Pick the modules you need now. Enable others anytime in Settings.</p>
+      </div>
+      <div class="update-panel">
+        <button id="checkUpdateBtn">Check for Updates</button>
+        <button id="downloadUpdateBtn" class="secondary">Download Update</button>
+        <button id="releaseBtn" class="ghost">Open Secure GitHub Release</button>
+        <small id="updateStatus">Status: Ready</small>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card" id="settings">
+        <h2>Settings</h2>
+        <p>Select which features are active. Turn others on later from here.</p>
+
+        <div id="featureToggles" class="toggle-list"></div>
+
+        <div class="file-controls">
+          <h3>Connected Data Files</h3>
+          <p>Connect CSV/TSV/JSON/Excel/PDF files. Dashboards update in real-time when files change.</p>
+          <button id="connectFilesBtn">Connect Files</button>
+          <ul id="connectedFilesList"></ul>
+        </div>
+      </section>
+
+      <section class="card feature" data-feature="inventory">
+        <h2>Inventory Control</h2>
+        <p>Real-time inventory levels with automatic reorder flags and quick item entry.</p>
+        <form id="inventoryForm" class="inline-form">
+          <input id="invItem" placeholder="Item name" required />
+          <input id="invStock" type="number" min="0" placeholder="Stock" required />
+          <input id="invReorder" type="number" min="0" placeholder="Reorder at" required />
+          <button type="submit">Add Item</button>
+        </form>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>In Stock</th><th>Reorder Point</th><th>Status</th><th>Action</th></tr>
+          </thead>
+          <tbody id="inventoryRows"></tbody>
+        </table>
+      </section>
+
+      <section class="card feature" data-feature="dashboard">
+        <h2>Smart Dashboards</h2>
+        <p>Live KPIs from your module activity and connected file data.</p>
+        <canvas id="kpiChart" width="500" height="220"></canvas>
+        <div id="fileSummary" class="file-summary"></div>
+      </section>
+
+      <section class="card feature" data-feature="attendance">
+        <h2>Staff Attendance</h2>
+        <p>Track check-ins and leave status, ready for payroll exports.</p>
+        <form id="attendanceForm" class="inline-form">
+          <input id="attStaff" placeholder="Staff name" required />
+          <select id="attStatus">
+            <option>Checked in</option>
+            <option>On-site</option>
+            <option>Remote</option>
+            <option>Approved leave</option>
+          </select>
+          <button type="submit">Add Entry</button>
+        </form>
+        <ul id="attendanceList"></ul>
+      </section>
+
+      <section class="card feature" data-feature="workOrders">
+        <h2>Work Order Tracking</h2>
+        <p>Capture and monitor work orders from lead to delivered.</p>
+        <form id="workOrderForm" class="inline-form">
+          <input id="woId" placeholder="WO ID" required />
+          <select id="woStage">
+            <option>Lead Qualified</option>
+            <option>In Production</option>
+            <option>Quality Check</option>
+            <option>Delivered</option>
+          </select>
+          <input id="woOwner" placeholder="Owner" required />
+          <button type="submit">Add Work Order</button>
+        </form>
+        <ul id="workOrderList"></ul>
+      </section>
+
+      <section class="card feature" data-feature="workflows">
+        <h2>Custom Workflows</h2>
+        <p>Create configurable workflow automations that match your exact process.</p>
+        <form id="workflowForm" class="inline-form">
+          <input id="wfName" placeholder="Workflow name" required />
+          <input id="wfTrigger" placeholder="Trigger" required />
+          <input id="wfAction" placeholder="Action" required />
+          <button type="submit">Add Workflow</button>
+        </form>
+        <div id="workflowList" class="workflow-list"></div>
+      </section>
+
+      <section class="card feature" data-feature="systemHealth">
+        <h2>System Health</h2>
+        <p>Quick operational insight generated from live module totals.</p>
+        <div id="healthStats" class="stats-grid"></div>
+      </section>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
