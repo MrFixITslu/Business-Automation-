@@ -1,0 +1,64 @@
+{
+  "name": "business-automation-suite",
+  "version": "3.1.1",
+  "description": "Business Automation Suite v3.1.1 desktop app",
+  "main": "src/main.js",
+  "author": "Neil",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/renderer.js"
+  },
+  "build": {
+    "appId": "com.neil.businessautomation",
+    "productName": "Business Automation Suite",
+    "files": [
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "YOUR_GITHUB_ORG",
+        "repo": "YOUR_SECURE_REPO"
+      }
+    ],
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.business"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Office"
+    }
+  },
+  "dependencies": {
+    "electron-log": "^5.1.2",
+    "electron-updater": "^6.3.9",
+    "xlsx": "^0.18.5",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^25.1.8"
+  },
+  "overrides": {
+    "minimatch": "^10.2.1"
+  }
+}
