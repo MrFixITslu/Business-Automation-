@@ -1,0 +1,116 @@
+:root {
+  --bg: #0f172a;
+  --panel: #111827;
+  --accent: #38bdf8;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --ok: #22c55e;
+  --warn: #f59e0b;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, sans-serif;
+  background: linear-gradient(140deg, var(--bg), #020617 70%);
+  color: var(--text);
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #1f2937;
+  position: sticky;
+  top: 0;
+  background: rgba(2, 6, 23, 0.95);
+  backdrop-filter: blur(4px);
+}
+
+h1, h2 { margin: 0 0 0.5rem; }
+p { margin: 0 0 1rem; color: var(--muted); }
+
+button {
+  border: none;
+  background: var(--accent);
+  color: #082f49;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+button.secondary { background: #22d3ee; }
+button.ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid #334155;
+}
+
+.update-panel {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  align-items: center;
+  gap: 0.5rem;
+}
+#updateStatus {
+  grid-column: 1 / -1;
+  color: var(--muted);
+}
+
+.grid {
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  text-align: left;
+  padding: 0.45rem;
+  border-bottom: 1px solid #1f2937;
+}
+.status-ok { color: var(--ok); }
+.status-warn { color: var(--warn); font-weight: 700; }
+
+ul {
+  margin: 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.workflow-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.workflow-tags span {
+  border: 1px solid #334155;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.support-box {
+  background: #0b1220;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+@media (max-width: 960px) {
+  .grid { grid-template-columns: 1fr; }
+  .topbar { flex-direction: column; }
+}

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Automation Suite</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Business Automation Suite</h1>
+        <p>Automation built for real business operations.</p>
+      </div>
+      <div class="update-panel">
+        <button id="checkUpdateBtn">Check for Updates</button>
+        <button id="downloadUpdateBtn" class="secondary">Download Update</button>
+        <button id="releaseBtn" class="ghost">Open Secure GitHub Release</button>
+        <small id="updateStatus">Status: Ready</small>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card" id="inventory">
+        <h2>Inventory Control</h2>
+        <p>Real-time tracking of every item. Auto-reorder logic highlights low stock.</p>
+        <table>
+          <thead>
+            <tr><th>Item</th><th>In Stock</th><th>Reorder Point</th><th>Status</th></tr>
+          </thead>
+          <tbody id="inventoryRows"></tbody>
+        </table>
+      </section>
+
+      <section class="card" id="dashboard">
+        <h2>Smart Dashboards</h2>
+        <p>Visual reports that update automatically for instant business visibility.</p>
+        <canvas id="kpiChart" width="500" height="220"></canvas>
+      </section>
+
+      <section class="card" id="attendance">
+        <h2>Staff Attendance</h2>
+        <p>Accurate, automated payroll-ready attendance without paperwork.</p>
+        <ul id="attendanceList"></ul>
+      </section>
+
+      <section class="card" id="workOrders">
+        <h2>Work Order Tracking</h2>
+        <p>Track every project from lead to delivery with clear ownership.</p>
+        <ul id="workOrderList"></ul>
+      </section>
+
+      <section class="card" id="workflows">
+        <h2>Custom Workflows</h2>
+        <p>Bespoke automations for your unique bottlenecks and operating model.</p>
+        <div class="workflow-tags">
+          <span>Approval Routing</span>
+          <span>Auto-Invoicing</span>
+          <span>Lead Assignment</span>
+          <span>Service Alerts</span>
+        </div>
+      </section>
+
+      <section class="card" id="support">
+        <h2>Local Expertise</h2>
+        <p>Launch in days with direct support from Neil when you need it most.</p>
+        <div class="support-box">
+          <strong>Implementation Timeline:</strong>
+          <ol>
+            <li>Discovery & process mapping</li>
+            <li>Configuration & data migration</li>
+            <li>Staff onboarding</li>
+            <li>Go-live + local support</li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
